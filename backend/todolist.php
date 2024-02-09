@@ -1,4 +1,3 @@
-
 <?php
 // <!-- ci sono due modi per poter utilizzare dei dati 
 // 1) li creo direttamente in php
@@ -20,5 +19,4 @@ $list = json_decode($stringaJSONPresa, true);
 header('Content-Type: application/json');
 
 echo json_encode($list);
-
 ?>
