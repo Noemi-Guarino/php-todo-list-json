@@ -3,7 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            todolist: []
+            todolist: [],
+            newtodo:''
         };
     },
     mounted() {
@@ -13,5 +14,25 @@ createApp({
                 console.log(res.data,"we");
                 this.todolist = res.data;
             });
+    },
+    methods:{
+        addtodo(){
+
+        axios
+            .post('http://localhost/ESERCIZIO-php-todo-list-json/php-todo-list-json/backend/db/create-todo.php',
+            {
+                newtask:this.newtodo
+            },
+            {
+                Headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(res => {
+                console.log(res);
+            })
+
+
+        }
     }
 }).mount('#app');

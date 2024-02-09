@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>PHP ToDo List JSON</title>
 </head>
 <body>
     <div id="app">
-        <div>
+        <div class="container">
+            <div>
+                <input v-model="newtodo" type="text" placeholder="Aggiungi un nuovo to do">
+                <button @click="addtodo()">Invia</button>
+            </div>
             <ul>
                 <li v-for="(single,index) in todolist">
                     {{ single.todo }}
