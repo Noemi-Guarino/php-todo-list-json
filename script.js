@@ -8,9 +8,9 @@ createApp({
     },
     mounted() {
         axios
-            .get('http://localhost/ESERCIZIO-php-todo-list-json/php-todo-list-json/backend/todolist.php')
+            .get('http://localhost/ESERCIZIO-php-todo-list-json/php-todo-list-json/backend/db/todolist.php')
             .then((res) => {
-                console.log(res,"we");
+                console.log(res.data,"we");
                 this.todolist = res.data;
             });
     }
