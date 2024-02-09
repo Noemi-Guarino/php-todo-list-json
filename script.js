@@ -21,7 +21,7 @@ createApp({
         axios
             .post('http://localhost/ESERCIZIO-php-todo-list-json/php-todo-list-json/backend/db/create-todo.php',
             {
-                newtask:this.newtodo
+                task:this.newtodo
             },
             {
                 Headers:{
