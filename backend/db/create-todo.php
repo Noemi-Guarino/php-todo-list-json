@@ -16,7 +16,7 @@
   $alltodo = json_decode($alltodoJSON, true);
 
     $newtodo = [
-        'task' => $_POST['task']
+        'todo' => $_POST['todo']
     ];
 
   $alltodo[] = $newtodo;
@@ -24,5 +24,7 @@
   $alltodowithnewJSON = json_encode($alltodo);
 
   file_put_contents('todolist.json',$alltodowithnewJSON);
+
+//   header('Content-Type: application/json');
 
 ?> 
