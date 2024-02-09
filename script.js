@@ -24,7 +24,7 @@ createApp({
                 todo: this.newtodo
             },
             {
-                Headers:{
+                headers:{
                     'Content-Type': 'multipart/form-data'
                 }
             })
@@ -32,8 +32,6 @@ createApp({
                 console.log(res);
                 this.todolist = [...this.todolist,res.data];
             })
-
-
         }
     }
 }).mount('#app');

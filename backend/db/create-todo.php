@@ -10,23 +10,24 @@
     // file_put_contents('todolist.json', $newtodoJSON);
 
 
-// cosi invece aggiunge i nyuovi todo preservando la vecchia
-  $alltodoJSON =  file_get_contents('todolist.json');
+    // cosi invece aggiunge i nyuovi todo preservando la vecchia
+    // prendo il vecchio contenuto
+    $alltodoJSON =  file_get_contents('todolist.json');
+    // trasformo in una struttura(decodifica)
+    $alltodo = json_decode($alltodoJSON, true);
+    // creo il nuovo todo
+        $newtodo = [
+            'todo' => $_POST['todo']
+        ];
+    // aggiungere all array originale i nuovi to do del nuovo
+    $alltodo[] = $newtodo;
+    // ritrasformo struttura in una stringa json
+    $alltodowithnewJSON = json_encode($alltodo);
+    // prendi dove vuoi scrivere e cosa vuoi scrivere e agg il nuovo
+    file_put_contents('todolist.json',$alltodowithnewJSON);
 
-  $alltodo = json_decode($alltodoJSON, true);
-
-    $newtodo = [
-        'todo' => $_POST['todo']
-    ];
-
-  $alltodo[] = $newtodo;
-
-  $alltodowithnewJSON = json_encode($alltodo);
-
-  file_put_contents('todolist.json',$alltodowithnewJSON);
-
-  header('Content-Type: application/json');
-  
-  echo json_encode($newtodo)
+    header('Content-Type: application/json');
+    
+    echo json_encode($newtodo);
 
 ?> 
