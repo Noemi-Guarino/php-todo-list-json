@@ -30,6 +30,7 @@ createApp({
             })
             .then(res => {
                 console.log(res);
+                this.todolist = [...this.todolist,res.data];
             })
 
 
